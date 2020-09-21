@@ -68,7 +68,7 @@ class UserTest extends TestCase
 
     public function testOptInDateFails()
     {
-        $this->expectException(\Exception::class);
+        $this->expectException(\TypeError::class);
 
         $reference = 'abcdef';
 

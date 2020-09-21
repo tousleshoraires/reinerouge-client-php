@@ -1,0 +1,25 @@
+{
+  "name": "tousleshoraires/reinerouge-client-php",
+  "description": "PHP Client for ReineRouge user reception API",
+  "autoload": {
+    "psr-4": {
+      "TLH\\ReineRougeClient\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "TLH\\ReineRougeClient\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php": "^7.0",
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.7|^6.5|^7.4"
+  },
+  "suggest": {
+    "php": "^7.3"
+  }
+}

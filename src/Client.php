@@ -4,24 +4,23 @@ namespace TLH\ReineRougeClient;
 
 use TLH\ReineRougeClient\Model\Response;
 use TLH\ReineRougeClient\Model\UserInterface;
-use TLH\ReineRougeClient\Utils\Generator;
+use TLH\ReineRougeClient\Utils\GeneratorInterface;
 
 class Client
 {
     /** @var string $url */
     protected $url;
-    /**
-     * @var Generator
-     */
+
+    /** @var GeneratorInterface $generator */
     private $generator;
 
     /**
      * Client constructor.
      *
      * @param string $url
-     * @param Generator $generator
+     * @param GeneratorInterface $generator
      */
-    public function __construct($url, Generator $generator)
+    public function __construct($url, GeneratorInterface $generator)
     {
         $this->url = $url;
         $this->generator = $generator;

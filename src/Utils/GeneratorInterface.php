@@ -1,6 +1,5 @@
 <?php
 
-
 namespace TLH\ReineRougeClient\Utils;
 
 use TLH\ReineRougeClient\Model\UserInterface;

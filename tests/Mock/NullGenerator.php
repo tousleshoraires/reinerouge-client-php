@@ -1,10 +1,4 @@
 <?php
-/**
- * @package TLH\ReineRougeClient\Tests\Mock
- * User: jdevergnies
- * Date: 17/11/2020
- * Time: 17:54
- */
 
 namespace TLH\ReineRougeClient\Tests\Mock;
 

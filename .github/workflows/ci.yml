@@ -4,7 +4,8 @@ on:
   pull_request: ~
 
 env:
-  COMPOSER_FLAGS: "--prefer-stable"
+  COMPOSER_FLAGS: ""
+#  COMPOSER_FLAGS: "--prefer-stable"
 
 jobs:
   ci_job:

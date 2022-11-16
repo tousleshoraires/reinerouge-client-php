@@ -10,7 +10,7 @@ PHP Client to interact with the ReineRouge API for user addition.
 * ext-curl for PHP
 * ext-json for PHP
 
-We higly recommand using PHP7.3 or higher.
+We higly recommand using PHP7.4 or newer.
 
 ## Installation ##
 

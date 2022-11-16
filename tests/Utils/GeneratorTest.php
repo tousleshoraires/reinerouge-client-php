@@ -28,7 +28,7 @@ class GeneratorTest extends TestCase
         $this->assertEquals($built['firstname'], $user->getFirstName());
         $this->assertEquals($built['lastname'], $user->getLastName());
         if (\method_exists($this, 'assertIsString')) {
-            $this->assertIsString($built);
+            $this->assertIsString($built['timestamp']);
         } else {
             $this->assertInternalType('string', $built['timestamp']);
         }
@@ -71,7 +71,7 @@ class GeneratorTest extends TestCase
         $this->assertEquals($built['custom1'], $user->getCustom1());
         $this->assertEquals($built['custom2'], $user->getCustom2());
         if (\method_exists($this, 'assertIsString')) {
-            $this->assertIsString($built);
+            $this->assertIsString($built['timestamp']);
         } else {
             $this->assertInternalType('string', $built['timestamp']);
         }

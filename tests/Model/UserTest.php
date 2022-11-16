@@ -14,6 +14,7 @@ class UserTest extends TestCase
 
     public function testGetOptInUrl()
     {
+        $this->setUpLegacy();
         $reference = 'https://example.com/registration';
 
         $this->user->setOptInUrl($reference);
@@ -23,6 +24,7 @@ class UserTest extends TestCase
 
     public function testGetTitle()
     {
+        $this->setUpLegacy();
         $reference = 'Mr';
 
         $this->user->setTitle($reference);
@@ -32,6 +34,7 @@ class UserTest extends TestCase
 
     public function testGetBirthDate()
     {
+        $this->setUpLegacy();
         $reference = '2000-01-31';
 
         $this->user->setBirthDate($reference);
@@ -41,6 +44,7 @@ class UserTest extends TestCase
 
     public function testGetFirstName()
     {
+        $this->setUpLegacy();
         $reference = 'Pierre-André';
 
         $this->user->setFirstName($reference);
@@ -50,6 +54,7 @@ class UserTest extends TestCase
 
     public function testGetZipCode()
     {
+        $this->setUpLegacy();
         $reference = '59800';
 
         $this->user->setZipCode($reference);
@@ -59,6 +64,7 @@ class UserTest extends TestCase
 
     public function testGetOptInDate()
     {
+        $this->setUpLegacy();
         $reference = new \DateTime();
 
         $this->user->setOptInDate($reference);
@@ -68,6 +74,7 @@ class UserTest extends TestCase
 
     public function testOptInDateFails()
     {
+        $this->setUpLegacy();
         $this->expectException(\TypeError::class);
 
         $reference = 'abcdef';
@@ -77,6 +84,7 @@ class UserTest extends TestCase
 
     public function testGetEmail()
     {
+        $this->setUpLegacy();
         $reference = 'email@domain.tld';
 
         $this->user->setEmail($reference);
@@ -86,6 +94,7 @@ class UserTest extends TestCase
 
     public function testGetLastName()
     {
+        $this->setUpLegacy();
         $reference = 'My Name';
 
         $this->user->setLastName($reference);
@@ -95,6 +104,7 @@ class UserTest extends TestCase
 
     public function testGetPhone()
     {
+        $this->setUpLegacy();
         $reference = '03 20 12 34 56';
 
         $this->user->setPhone($reference);
@@ -104,6 +114,7 @@ class UserTest extends TestCase
 
     public function testGetUid()
     {
+        $this->setUpLegacy();
         $reference = uniqid('', true);
 
         $this->user->setOptInUrl($reference);
@@ -111,7 +122,13 @@ class UserTest extends TestCase
         $this->assertEquals($reference, $this->user->getOptInUrl());
     }
 
-    public function setUp()
+    /**
+     * Older PHP version did not allow :void as return type hint.
+     * Hence using setUp() generates an error with some version of PHPUnit.
+     *
+     * @return void
+     */
+    public function setUpLegacy()
     {
         $this->user = new User();
     }

@@ -20,10 +20,10 @@ class GeneratorTest extends TestCase
         $generator = new Generator();
         $built = $generator->prepareData($user);
 
-        $this->assertInternalType('array', $built);
+        $this->assertIsArray($built);
         $this->assertEquals($built['firstname'], $user->getFirstName());
         $this->assertEquals($built['lastname'], $user->getLastName());
-        $this->assertInternalType('string', $built['timestamp']);
+        $this->assertIsString($built['timestamp']);
         $this->assertEquals($built['timestamp'], $user->getOptInDate()->format(Generator::OPTIN_DATE_FORMAT));
         $this->assertArrayNotHasKey('email', $built);
         $this->assertArrayHasKey('ip', $built);
@@ -47,7 +47,7 @@ class GeneratorTest extends TestCase
         $generator = new Generator();
         $built = $generator->prepareData($user);
 
-        $this->assertInternalType('array', $built);
+        $this->assertIsArray($built);
         $this->assertEquals($built['firstname'], $user->getFirstName());
         $this->assertEquals($built['lastname'], $user->getLastName());
         $this->assertEquals($built['phone'], $user->getPhone());
@@ -55,7 +55,7 @@ class GeneratorTest extends TestCase
         $this->assertEquals($built['title'], $user->getTitle());
         $this->assertEquals($built['custom1'], $user->getCustom1());
         $this->assertEquals($built['custom2'], $user->getCustom2());
-        $this->assertInternalType('string', $built['timestamp']);
+        $this->assertIsString($built['timestamp']);
         $this->assertEquals($built['timestamp'], $user->getOptInDate()->format(Generator::OPTIN_DATE_FORMAT));
         $this->assertArrayNotHasKey('email', $built);
         $this->assertArrayHasKey('ip', $built);

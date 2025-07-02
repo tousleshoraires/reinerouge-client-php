@@ -31,7 +31,10 @@ class Client
         if (!preg_match('`/$`', $this->url)) {
             $this->url.= '/';
         }
-        $url = $this->url.$user->getEmail();
+        $url = $this->url;
+        if (!preg_match('`/webhooks/$`', $url)) {
+            $url = $url.$user->getEmail();
+        }
 
         $postData = $this->generator->prepareData($user);
 

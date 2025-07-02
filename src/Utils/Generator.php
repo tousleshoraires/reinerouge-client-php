@@ -9,6 +9,15 @@ use TLH\ReineRougeClient\Model\UserInterface;
 class Generator implements GeneratorInterface
 {
     const OPTIN_DATE_FORMAT = 'Y-m-d H:i:s';
+    /**
+     * @var bool $legacy
+     */
+    private $legacy = false;
+
+    public function setLegacy(bool $legacy): void
+    {
+        $this->legacy = $legacy;
+    }
 
     /**
      * @param UserInterface $user
@@ -26,10 +35,15 @@ class Generator implements GeneratorInterface
         $data = $this->addField($user, $data, 'custom1', 'getCustom1');
         $data = $this->addField($user, $data, 'custom2', 'getCustom2');
 
-        $data['ip'] = $user->getUid();
-        $data['urlcollection'] = $user->getOptInUrl();
+        $data['ip_address'] = $user->getUid();
+        $data['page_url'] = $user->getOptInUrl();
         if ($user->getOptInDate()) {
             $data['timestamp'] = $user->getOptInDate()->format(self::OPTIN_DATE_FORMAT);
+        }
+
+        if ($this->legacy) {
+            $data['ip'] = $data['ip_address'];
+            $data['urlcollection'] = $data['page_url'];
         }
 
         return $data;

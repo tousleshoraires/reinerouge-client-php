@@ -35,7 +35,7 @@ $user->setOptInDate(new DateTime($optInDate));
 $user->setOptInUrl($optInUrl);
 $user->setUid($userUid);
 
-$client = new Client('https://agency.tracking.domain/coreg_(abc)/', new Generator());
+$client = new Client('https://agency.domain.tld/webhooks/collection/default/{cid}/{sid}/{key}', new Generator());
 /** @var \TLH\ReineRougeClient\Model\Response $answer */
 $answer = $client->send($user);
 
